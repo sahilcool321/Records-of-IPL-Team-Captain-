@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import Card from "./Card";
+import PlayerData from "./PlayerData";
+import "./index.css";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <>
+    <h1 className="heading_style">IPL 2021 team captains</h1>
+    {PlayerData.map((val) => {
+      return (
+        <Card
+          playerName={val.playerName}
+          team={val.team}
+          imgsrc={val.imgsrc}
+          matches={val.matches}
+          runs={val.runs}
+          avg={val.avg}
+          sr={val.sr}
+          highest={val.highest}
+          boundary={val.boundary}
+          catch={val.catch}
+        />
+      );
+    })}
+  </>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
